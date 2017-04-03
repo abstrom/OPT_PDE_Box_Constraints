@@ -1,0 +1,40 @@
+clear
+
+for it=2
+    beta = 1e-6;
+    epsilon=1e-2;
+    D = read_vector(['data_D' num2str(it) '.dat']);
+    M = read_matrix(['data_M' num2str(it) '.dat']);
+    K = read_matrix(['data_K' num2str(it) '.dat']);
+    H1 = read_matrix(['data_H1' num2str(it) '.dat']);
+%    H2 = read_matrix(['data_H2' num2str(it) '.dat']);
+    L = read_matrix(['data_L' num2str(it) '.dat']);
+    rhs1 = read_vector(['data_1rhs' num2str(it) '.dat']);
+    rhs2 = read_vector(['data_2rhs' num2str(it) '.dat']);
+%     nnz(H1-H2)
+    fil = ['b6e6h5it' num2str(it)];
+     
+    x01 = read_vector(['data_1sol' num2str(it) '.dat']);
+    x02 = read_vector(['data_2sol' num2str(it) '.dat']);
+    
+    sol1 = read_vector(['data_1solfin' num2str(it) '.dat']);
+    sol2 = read_vector(['data_2solfin' num2str(it) '.dat']);
+    
+    save(fil)
+end
+
+
+
+% K=read_matrix('data_K2.dat');
+% M=read_matrix('data_M2.dat');
+% L=read_matrix('data_L2.dat');
+% D_a = read_vector('data_D2.dat');
+% D=sparse(diag(D_a));
+% H=read_matrix('data_H12.dat');
+% 
+% 
+% nnz(K-K')
+% nnz(M+1e4*(M*D)-L)
+% Z=H-sqrt(1e-2)*K;
+% Z=Z-L;
+% nnz(Z)
